@@ -10,6 +10,7 @@ import SwiftUI
 struct ArticleListView: View {
     
     let articles: [Article]
+    let categoryText: String
     @State private var selectedArticle: Article?
     
     var body: some View {
@@ -25,9 +26,15 @@ struct ArticleListView: View {
         }
         .listStyle(.plain)
         .sheet(item: $selectedArticle) {
+            
+            // TODO: Open Detail Artical view, 
+//            ArticleDetailView(categoryText: categoryText, article:  $0)
+            
+            // Open Safari view and laod the Artical URL
             SafariView(url: $0.articleURL)
                 .edgesIgnoringSafeArea(.bottom)
         }
+      
     }
 }
 
@@ -35,7 +42,7 @@ struct ArticleListView: View {
 #Preview {
     @Previewable @StateObject var articleBookmarkVM = ArticleBookmarkViewModel.shared
     NavigationView {
-        ArticleListView(articles: Article.previewData)
+        ArticleListView(articles: Article.previewData , categoryText: "")
             .environmentObject(articleBookmarkVM)
     }
 }

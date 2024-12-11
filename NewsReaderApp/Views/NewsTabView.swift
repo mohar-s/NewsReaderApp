@@ -13,7 +13,7 @@ struct NewsTabView: View {
     
     var body: some View {
         NavigationView {
-            ArticleListView(articles: articles)
+            ArticleListView(articles: articles , categoryText: articleNewsVM.fetchTaskToken.category.text)
                 .overlay(overlayView)
                 .task(id: articleNewsVM.fetchTaskToken, loadTask)
                 .refreshable(action: refreshTask)
@@ -67,17 +67,6 @@ struct NewsTabView: View {
             Image(systemName: "fiberchannel")
                 .imageScale(.large)
         }
-    }
-}
-
-struct NewsTabView_Previews: PreviewProvider {
-    
-    @StateObject static var articleBookmarkVM = ArticleBookmarkViewModel.shared
-
-    
-    static var previews: some View {
-        NewsTabView(articleNewsVM: ArticleNewsViewModel(articles: Article.previewData))
-            .environmentObject(articleBookmarkVM)
     }
 }
 

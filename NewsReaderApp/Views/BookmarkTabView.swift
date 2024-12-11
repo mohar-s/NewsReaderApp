@@ -16,7 +16,7 @@ struct BookmarkTabView: View {
         let articles = self.articles
         
         NavigationView {
-            ArticleListView(articles: articles)
+            ArticleListView(articles: articles, categoryText: "")
                 .overlay(overlayView(isEmpty: articles.isEmpty))
                 .navigationTitle("Saved Articles")
         }

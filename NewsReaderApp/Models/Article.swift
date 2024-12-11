@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 fileprivate let relativeDateFormatter = RelativeDateTimeFormatter()
 
 struct Article {
@@ -22,6 +23,7 @@ struct Article {
     let author: String?
     let description: String?
     let urlToImage: String?
+    let content: String?
     
     // Create the Enums
     enum CodingKeys: String, CodingKey {
@@ -32,6 +34,7 @@ struct Article {
         case author
         case description
         case urlToImage
+        case content
     }
     
     var authorText: String {
@@ -40,6 +43,10 @@ struct Article {
     
     var descriptionText: String {
         description ?? ""
+    }
+    
+    var contentText: String {
+        content ?? ""
     }
     
     var captionText: String {

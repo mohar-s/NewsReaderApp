@@ -13,7 +13,7 @@ struct SearchTabView: View {
     
     var body: some View {
         NavigationView {
-            ArticleListView(articles: articles)
+            ArticleListView(articles: articles , categoryText: "")
                 .overlay(overlayView)
                 .navigationTitle("Search")
         }
